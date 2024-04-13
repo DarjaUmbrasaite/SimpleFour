@@ -78,7 +78,7 @@ class SearchViewModel():ViewModel() {
 
             // Find common meal IDs across lists
             val commonMealIds = findCommonMealIds(successfulResults)
-            val commonMeals = successfulResults.flatten().filter { it.idMeal in commonMealIds }
+            val commonMeals = successfulResults.flatten().distinct().filter { it.idMeal in commonMealIds }
 
             mealsByCategoryListLiveData.postValue(commonMeals)
         }
@@ -86,8 +86,9 @@ class SearchViewModel():ViewModel() {
 
     private fun findCommonMealIds(mealsLists: List<List<MealsByCategory>>): Set<String> {
         // finds mealids that are common to all lists
-        return mealsLists.map { it.map { meal -> meal.idMeal }.toSet() }
+        val commonlist =  mealsLists.map { it.map { meal -> meal.idMeal }.toSet() }
             .reduce { acc, set -> acc.intersect(set) }
+        return commonlist
     }
     fun observeMealsByCategoryListLiveData():LiveData<List<MealsByCategory>> {
         return mealsByCategoryListLiveData
