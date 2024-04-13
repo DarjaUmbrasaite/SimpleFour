@@ -68,7 +68,6 @@ class HomeFragment : Fragment() {
         homeMvvm.getCategories()
         observeCategoriesLiveData()
         onCategoryClick()
-
     }
 
     private fun onCategoryClick() {
@@ -117,7 +116,6 @@ class HomeFragment : Fragment() {
         homeMvvm.observePopularItemsLiveData().observe(viewLifecycleOwner,
             { mealList->
                 popularItemsAdapter.setMeals(mealsList = mealList as ArrayList<MealsByCategory>)
-
             })
 
 

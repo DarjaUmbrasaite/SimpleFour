@@ -6,12 +6,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.darjacreations.simplefour.adapters.CategoryMealsAdapter
 import com.darjacreations.simplefour.databinding.ActivityCategoryMealsBinding
-import com.darjacreations.simplefour.fragments.HomeFragment
-import com.darjacreations.simplefour.viewModel.CategoryMealsViewModel
+import com.darjacreations.simplefour.fragments.SearchFragment
+import com.darjacreations.simplefour.viewModel.SearchViewModel
 
 class SearchResultsActivity : AppCompatActivity() {
     lateinit var binding : ActivityCategoryMealsBinding
-    lateinit var categoryMealsViewModel:CategoryMealsViewModel
+    lateinit var searchViewModel: SearchViewModel
     lateinit var categoryMealsAdapter: CategoryMealsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,14 +21,13 @@ class SearchResultsActivity : AppCompatActivity() {
 
         prepareRecyclerView()
 
-        categoryMealsViewModel = ViewModelProvider( this)[CategoryMealsViewModel::class.java]
+        searchViewModel = ViewModelProvider( this)[SearchViewModel::class.java]
 
-        categoryMealsViewModel.getMealsByCategory(intent.getStringExtra(HomeFragment.CATEGORY_NAME)!!)
+        searchViewModel.getMealsByIngredients(intent.getStringArrayListExtra(SearchFragment.SEARCH_LIST)!!)
 
-        categoryMealsViewModel.observeMealsLiveData().observe( this, { mealsList->
+        searchViewModel.observeMealsByCategoryListLiveData().observe( this, { mealsList->
             binding.tvCategoryCount.text = mealsList.size.toString()
             categoryMealsAdapter.setMealsList(mealsList)
-
         })
     }
 

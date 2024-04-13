@@ -69,9 +69,15 @@ dependencies {
     //gif - loading animation
     implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
 
+    //coroutines
+    val coroutine_version = "1.6.4"
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version")
+
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
 
     //Glide - takes image from the link and puts into imageview
     implementation ("com.github.bumptech.glide:glide:4.12.0")

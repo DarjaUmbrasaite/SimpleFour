@@ -1,5 +1,4 @@
 package com.darjacreations.simplefour.pojo
-
 data class MealsByCategory(
     val idMeal: String,
     val strMeal: String,
