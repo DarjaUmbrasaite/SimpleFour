@@ -87,6 +87,9 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
 
+    // view model scope dependancy
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+
 
     //Room
     val room_version = "2.6.1"
