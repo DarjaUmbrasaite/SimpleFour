@@ -5,12 +5,16 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.darjacreations.simplefour.fragments.HomeFragment
 import com.darjacreations.simplefour.R
 import com.darjacreations.simplefour.databinding.ActivityMealBinding
+import com.darjacreations.simplefour.db.MealDatabase
+import com.darjacreations.simplefour.pojo.Meal
 import com.darjacreations.simplefour.viewModel.MealViewModel
+import com.darjacreations.simplefour.viewModel.MealViewModelProduce
 
 
 class MealActivity : AppCompatActivity() {
@@ -26,7 +30,13 @@ class MealActivity : AppCompatActivity() {
         binding = ActivityMealBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        mealMvvm = ViewModelProvider( this)[MealViewModel::class.java]
+        //instance from the database (view model)
+        val mealDatabase = MealDatabase.getInstance( this)
+        val viewModelProduce = MealViewModelProduce(mealDatabase)
+        mealMvvm = ViewModelProvider( this, viewModelProduce)[MealViewModel::class.java]
+
+
+        //mealMvvm = ViewModelProvider( this)[MealViewModel::class.java]
 
         getMealInformationFromIntent()
 
@@ -38,9 +48,23 @@ class MealActivity : AppCompatActivity() {
 
         //function that allows to watch youtube video.1
         onYouTubeImageClick()
+        onFavouritesClick()
+
+
 
 
     }
+
+    private fun onFavouritesClick() {
+        binding.btnAddToFav.setOnClickListener {
+            mealToRecord?.let {
+                mealMvvm.insertMeal(it)
+                Toast.makeText(this, "Meal saved", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+    }
+
     //function that allows to watch youtube video.2
     private fun onYouTubeImageClick() {
         binding.imgYoutube.setOnClickListener {
@@ -50,6 +74,7 @@ class MealActivity : AppCompatActivity() {
 
     }
 
+    private var mealToRecord:Meal?=null
     //that's where i get response case api. Function listens to the live data,
     // live data changed and response is received
     private fun observerMealDetailsLiveData() {
@@ -57,6 +82,7 @@ class MealActivity : AppCompatActivity() {
         ) { t ->
             onResponseCase()
             val meal = t
+            mealToRecord = meal
 
             binding.tvCategory.text = "Category : ${meal!!.strCategory}"
             binding.tvArea.text = "Area : ${meal.strArea}"
