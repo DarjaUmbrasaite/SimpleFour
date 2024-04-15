@@ -32,7 +32,7 @@ class SearchResultsActivity : AppCompatActivity() {
     }
 
     private fun prepareRecyclerView() {
-        categoryMealsAdapter = CategoryMealsAdapter()
+        categoryMealsAdapter = CategoryMealsAdapter(this)
         binding.rvMeals.apply {
             layoutManager = GridLayoutManager(context,2,GridLayoutManager.VERTICAL,false)
                 adapter = categoryMealsAdapter
