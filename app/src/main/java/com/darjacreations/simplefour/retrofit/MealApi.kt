@@ -18,11 +18,12 @@ interface MealApi {
     @GET( "random.php")
     fun getRandomMeal():Call<MealList>
 
-    @GET( "lookup.php?")
+
+    @GET( "lookup.php")
     fun getMealDetails(@Query("i") id:String) : Call<MealList>
-    //with question marl i can have one query inside this function
-    //TODO change logic here?
-    @GET("filter.php?")
+
+    //with question mark I can have one query inside this function
+    @GET("filter.php")
     fun getPopularItems(@Query("c") categoryName:String) : Call<MealsByCategoryList>
 
     @GET( "categories.php")

@@ -26,6 +26,12 @@ class HomeViewModel(
     private var categoriesLiveData = MutableLiveData<List<Category>>()
     private var favouritesMealsLiveData = mealDatabase.mealDao().getAllMeals()
 
+    //init block gets call when there is instance from the HomeViewModel,
+    // view model still the same even after recreation
+    init{
+        getRandomMeal()
+    }
+
     fun getRandomMeal(){
         RetrofitInstance.api.getRandomMeal().enqueue(object : Callback<MealList> {
             override fun onResponse(call: Call<MealList>, response: Response<MealList>) {
