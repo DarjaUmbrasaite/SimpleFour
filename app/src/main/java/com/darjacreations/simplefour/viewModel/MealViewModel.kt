@@ -47,11 +47,11 @@ class MealViewModel(
         }
     }
 
-    fun deleteMeal(meal:Meal){
-        viewModelScope.launch {
-            mealDatabase.mealDao().delete(meal)
-        }
+    fun observeFavouritesLiveData():LiveData<List<Meal>>{
+        return observeFavouritesLiveData()
     }
+
+
 }
 
 
