@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
 
 }
 
@@ -44,6 +45,9 @@ android {
 dependencies {
 
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("com.google.firebase:firebase-firestore:24.11.1")
+    //firebase authentication dependency
+    implementation("com.google.firebase:firebase-auth:22.3.1")
     val nav_version = "2.7.7"
     val lifecycle_version = "2.7.0"
 
@@ -56,6 +60,7 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
 
 
     // navigation component
