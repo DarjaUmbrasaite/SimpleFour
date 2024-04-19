@@ -16,10 +16,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/myfont"
+            android:fontFamily="@font/times_new"
             android:text="Search By Four"
-            android:textColor="@color/purple_200"
-            android:textSize="@dimen/_25ssp"
+            android:textColor="@color/dark_main"
+            android:textSize="@dimen/_24ssp"
             android:textStyle="bold" />
 
         <AutoCompleteTextView
@@ -57,9 +57,12 @@
             android:id="@+id/searchButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:text="Search"
-            android:textColor="@color/purple_200"
-            android:layout_marginTop="16dp"/>
+            android:background="@color/dark_main"
+            android:textColor="@color/white"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/main_text"/>
 
     </LinearLayout>
 

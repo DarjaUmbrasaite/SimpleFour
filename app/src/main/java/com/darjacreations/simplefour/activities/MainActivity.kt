@@ -2,6 +2,8 @@ package com.darjacreations.simplefour.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
@@ -28,5 +30,11 @@ class MainActivity : AppCompatActivity() {
         val navController = Navigation.findNavController(this, R.id.host_fragment)
 
         NavigationUI.setupWithNavController(bottomNavigation,navController)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater : MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
     }
 }

@@ -1,5 +1,6 @@
 package com.darjacreations.simplefour.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,9 +9,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.darjacreations.simplefour.R
+import com.darjacreations.simplefour.activities.CategoryMealsActivity
 import com.darjacreations.simplefour.activities.MainActivity
 import com.darjacreations.simplefour.adapters.CategoriesAdapter
 import com.darjacreations.simplefour.databinding.FragmentCategoriesBinding
+import com.darjacreations.simplefour.fragments.HomeFragment.Companion.CATEGORY_NAME
 import com.darjacreations.simplefour.viewModel.HomeViewModel
 
 class CategoriesFragment : Fragment() {
@@ -38,8 +41,17 @@ class CategoriesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         prepareRecyclerView()
-
         observeCategories()
+        onCategoryClick()
+
+    }
+
+    private fun onCategoryClick() {
+        categoriesAdapter.onItemClick = { category ->
+            val intent = Intent(activity, CategoryMealsActivity::class.java)
+            intent.putExtra(CATEGORY_NAME, category.strCategory)
+            startActivity(intent)
+        }
     }
 
     private fun observeCategories() {

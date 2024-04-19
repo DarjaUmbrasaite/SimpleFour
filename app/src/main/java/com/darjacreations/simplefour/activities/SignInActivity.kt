@@ -49,12 +49,12 @@ class SignInActivity : AppCompatActivity() {
     //function that checks if the user is already signed in.
     // If yes, it will redirect the user directly to the home
     // page, skipping sign up and sign in pages
-    //override fun onStart() {
-     //   super.onStart()
+    override fun onStart() {
+        super.onStart()
 
-       // if(firebaseAuth.currentUser != null){
-          //  val intent = Intent(this, MainActivity::class.java)
-          //  startActivity(intent)
-    //    }
- //   }
+        if(firebaseAuth.currentUser != null){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+   }
 }
