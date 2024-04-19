@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "452753377382",
+    "project_id": "simplefour-93dc6",
+    "storage_bucket": "simplefour-93dc6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452753377382:android:d9b5e702b05c49b90985a7",
+        "android_client_info": {
+          "package_name": "com.darjacreations.simplefour"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOWqbytwYKQZF0CELLwSeXs3BL05XrK9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
