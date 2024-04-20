@@ -42,7 +42,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/img_search"
+            android:id="@+id/menu_button"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"

@@ -11,6 +11,11 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.darjacreations.simplefour.fragments.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
         android:id="@+id/favouritesFragment"
         android:name="com.darjacreations.simplefour.fragments.FavouritesFragment"
         android:label="fragment_favourites"
@@ -20,10 +25,6 @@
         android:name="com.darjacreations.simplefour.fragments.CategoriesFragment"
         android:label="fragment_categories"
         tools:layout="@layout/fragment_categories" />
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.darjacreations.simplefour.fragments.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+
 
 </navigation>

@@ -5,16 +5,15 @@
     <item android:title="Home"
         android:icon="@drawable/ic_home"
         android:id="@+id/homeFragment"/>
-
+    <item android:title="Search"
+        android:icon="@drawable/ic_search"
+        android:id="@+id/searchFragment"/>
+    <item android:title="Categories"
+        android:icon="@drawable/ic_categories"
+        android:id="@+id/categoriesFragment"/>
     <item android:title="Favourites"
         android:icon="@drawable/ic_favourites"
         android:id="@+id/favouritesFragment"/>
 
-    <item android:title="Categories"
-        android:icon="@drawable/ic_categories"
-        android:id="@+id/categoriesFragment"/>
 
-    <item android:title="Search"
-        android:icon="@drawable/ic_search"
-        android:id="@+id/searchFragment"/>
 </menu>
