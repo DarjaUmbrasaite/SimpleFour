@@ -47,7 +47,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEt"
-            android:fontFamily="@font/main_text"
+            android:fontFamily="@font/times_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email address"
@@ -71,7 +71,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passET"
-            android:fontFamily="@font/main_text"
+            android:fontFamily="@font/times_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -95,7 +95,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/confirmPassEt"
-            android:fontFamily="@font/main_text"
+            android:fontFamily="@font/times_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Retype Your Password"
@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:background="@color/dark_main"
-        android:fontFamily="@font/main_text"
+        android:fontFamily="@font/times_new"
         android:text="Sign up"
         android:textColor="@color/white"
         android:textStyle="bold"
