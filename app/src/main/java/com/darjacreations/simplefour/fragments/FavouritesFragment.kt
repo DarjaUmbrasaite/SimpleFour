@@ -5,12 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.darjacreations.simplefour.R
 import com.darjacreations.simplefour.activities.MainActivity
 import com.darjacreations.simplefour.adapters.FavouritesMealsAdapter
 import com.darjacreations.simplefour.databinding.FragmentFavouritesBinding
@@ -57,22 +55,19 @@ class FavouritesFragment : Fragment() {
                 target: RecyclerView.ViewHolder
             ) = true
 
-
             //implements swipe function, deletes meal, displays message and undo message option(snackbar)
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val position = viewHolder.adapterPosition
+                val mealToDelete = favouritesAdapter.differ.currentList[position]
                 viewModel.deleteMeal(favouritesAdapter.differ.currentList[position])
-
                 Snackbar.make(requireView(), "Meal removed from your favourites", Snackbar.LENGTH_LONG).setAction(
-                "Undo",
-                View.OnClickListener {
-                    viewModel.insertMeal(favouritesAdapter.differ.currentList[position])
-                }
-
-                ).show()
+                "Undo"
+                ) {
+                    viewModel.insertMeal(mealToDelete)
+                    Snackbar.make(requireView(), "Undone!", Snackbar.LENGTH_SHORT).show()
+                }.show()
             }
         }
-
         ItemTouchHelper(itemTouchHelper).attachToRecyclerView(binding.rviewFavourites)
     }
 

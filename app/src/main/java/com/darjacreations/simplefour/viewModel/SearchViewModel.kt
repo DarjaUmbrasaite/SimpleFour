@@ -40,22 +40,6 @@ class SearchViewModel():ViewModel() {
         })
     }
 
-    // uses call backs but not good for multiple calls
-//    fun getMealsByIngredients(ingredientString: String) {
-//        RetrofitInstance.api.getMealsByIngredient(ingredientString).enqueue(object : Callback<MealsByCategoryList> {
-//            override fun onResponse(call: Call<MealsByCategoryList>, response: Response<MealsByCategoryList>) {
-//                if(response.body() !=null){
-//                    mealsByCategoryListLiveData.value = response.body()!!.meals
-//                }else{
-//                    return
-//                }
-//            }
-//            override fun onFailure(call: Call<MealsByCategoryList>, t: Throwable) {
-//                Log.e( "SearchViewModel",t.message.toString())
-//            }
-//        })
-//    }
-
     // uses coroutines for multiple calls
     fun getMealsByIngredients(ingredients: List<String>) {
         viewModelScope.launch {

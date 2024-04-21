@@ -22,7 +22,7 @@ class HomeViewModel(
     private val mealDatabase: MealDatabase
 ):ViewModel() {
     private var randomMealLiveData = MutableLiveData<Meal>()
-    private var popularItemsLiveData = MutableLiveData<List<MealsByCategory>>()
+    private var randomCategoryItemsLiveData = MutableLiveData<MealsByCategoryList>()
     private var categoriesLiveData = MutableLiveData<List<Category>>()
     private var favouritesMealsLiveData = mealDatabase.mealDao().getAllMeals()
 
@@ -50,18 +50,40 @@ class HomeViewModel(
     }
 
 
-    fun getPopularItems(){
-        RetrofitInstance.api.getPopularItems("Seafood").enqueue(object : Callback<MealsByCategoryList>{
-            override fun onResponse(call: Call<MealsByCategoryList>, response: Response<MealsByCategoryList>) {
-                if(response.body() != null){
-                    popularItemsLiveData.value = response.body()!!.meals
-                }
-            }
+    fun getRandomCategory(){
 
-            override fun onFailure(call: Call<MealsByCategoryList>, t: Throwable) {
-                Log.d("HomeFragment",t.message.toString())
+        RetrofitInstance.api.getCategories().enqueue(object : Callback<CategoryList>{
+            override fun onResponse(call: Call<CategoryList>, response: Response<CategoryList>) {
+                var categoryNames: List<String>? = null
+                response.body()?.let { categoryList ->
+                    categoryNames = categoryList.categories.map { it.strCategory }
+                }
+                var randomCategoryName = ""
+                if (categoryNames != null) {
+                    randomCategoryName = categoryNames!!.random()
+                }
+
+                RetrofitInstance.api.getMealsByCategory(randomCategoryName)
+                    .enqueue(object : Callback<MealsByCategoryList> {
+                        override fun onResponse(
+                            call: Call<MealsByCategoryList>,
+                            response: Response<MealsByCategoryList>
+                        ) {
+                            if (response.body() != null) {
+                                val mealsByCategoryList = response.body()!!
+                                mealsByCategoryList.categoryName = randomCategoryName
+                                randomCategoryItemsLiveData.value = mealsByCategoryList
+                            }
+                        }
+                        override fun onFailure(call: Call<MealsByCategoryList>, t: Throwable) {
+                            Log.d("HomeFragment", t.message.toString())
+                        }
+                    })
             }
-        })
+            override fun onFailure(call: Call<CategoryList>, t: Throwable) {
+                Log.e( "HomeViewModel",t.message.toString())
+            }
+         })
     }
 
     fun getCategories(){
@@ -94,8 +116,8 @@ class HomeViewModel(
         return randomMealLiveData
     }
 
-    fun observePopularItemsLiveData():LiveData<List<MealsByCategory>> {
-        return popularItemsLiveData
+    fun observeRandomCategoryItemsLiveData():LiveData<MealsByCategoryList> {
+        return randomCategoryItemsLiveData
 
     }
 

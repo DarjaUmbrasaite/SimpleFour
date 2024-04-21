@@ -25,11 +25,15 @@ class CategoryMealsActivity : AppCompatActivity() {
 
         categoryMealsViewModel.getMealsByCategory(intent.getStringExtra(HomeFragment.CATEGORY_NAME)!!)
 
-        categoryMealsViewModel.observeMealsLiveData().observe( this, { mealsList->
-            binding.tvCategoryCount.text = mealsList.size.toString()
-            categoryMealsAdapter.setMealsList(mealsList)
+        categoryMealsViewModel.observeMealsLiveData().observe( this) { mealsList ->
+            if (mealsList.meals.size == 0) {
+                binding.tvCategoryCount.text = "No Recipes found for this category"
+            } else {
+                binding.tvCategoryCount.text = "Results: ${mealsList.meals.size} ${mealsList.categoryName} Recipes"
+            }
+            categoryMealsAdapter.setMealsList(mealsList.meals)
 
-        })
+        }
     }
 
     private fun prepareRecyclerView() {

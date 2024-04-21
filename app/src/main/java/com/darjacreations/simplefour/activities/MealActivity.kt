@@ -36,8 +36,6 @@ class MealActivity : AppCompatActivity() {
         mealMvvm = ViewModelProvider( this, viewModelProduce)[MealViewModel::class.java]
 
 
-        //mealMvvm = ViewModelProvider( this)[MealViewModel::class.java]
-
         getMealInformationFromIntent()
 
         setInformationInViews()
@@ -46,13 +44,11 @@ class MealActivity : AppCompatActivity() {
         mealMvvm.getMealDetail(mealId)
         observerMealDetailsLiveData()
 
-        //function that allows to watch youtube video.1
+        //click listeners for buttons
         onYouTubeImageClick()
         onFavouritesClick()
-
-
-
-
+        onIngredientsClick()
+        onReceipeStepsClick()
     }
 
     private fun onFavouritesClick() {
@@ -61,7 +57,24 @@ class MealActivity : AppCompatActivity() {
                 mealMvvm.insertMeal(it)
                 Toast.makeText(this, "Meal saved", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
 
+    private fun onIngredientsClick() {
+        binding.btnIngredients.setOnClickListener {
+            mealToRecord?.let {
+                binding.tvInstructions.text = getString(R.string.ingredients)
+                binding.tvInstructionsSt.text = mealToRecord!!.createIngredientsList()
+            }
+        }
+    }
+
+    private fun onReceipeStepsClick() {
+        binding.btnInstructions.setOnClickListener {
+            mealToRecord?.let {
+                binding.tvInstructions.text = getString(R.string.recipe_steps)
+                binding.tvInstructionsSt.text = mealToRecord!!.strInstructions
+            }
         }
     }
 
@@ -83,10 +96,8 @@ class MealActivity : AppCompatActivity() {
             onResponseCase()
             val meal = t
             mealToRecord = meal
-
-            binding.tvCategory.text = "Category : ${meal!!.strCategory}"
-            binding.tvArea.text = "Area : ${meal.strArea}"
             binding.tvInstructionsSt.text = meal.strInstructions
+
 
             youtubeLink = meal?.strYoutube ?: ""
         }
@@ -97,9 +108,6 @@ class MealActivity : AppCompatActivity() {
            .load(mealThumb)
            .into(binding.imgMealDetail)
 
-        binding.collapsingToolbar.title = mealName
-        binding.collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(R.color.white))
-        binding.collapsingToolbar.setExpandedTitleColor(resources.getColor(R.color.white))
     }
 
     private fun getMealInformationFromIntent() {
@@ -114,8 +122,8 @@ class MealActivity : AppCompatActivity() {
         binding.progressBar.visibility = View.VISIBLE
         binding.btnAddToFav.visibility = View.INVISIBLE
         binding.tvInstructions.visibility = View.INVISIBLE
-        binding.tvCategory.visibility = View.INVISIBLE
-        binding.tvArea.visibility = View.INVISIBLE
+//        binding.tvCategory.visibility = View.INVISIBLE
+//        binding.tvArea.visibility = View.INVISIBLE
         binding.imgYoutube.visibility = View.INVISIBLE
 
     }
@@ -123,8 +131,6 @@ class MealActivity : AppCompatActivity() {
         binding.progressBar.visibility = View.INVISIBLE
         binding.btnAddToFav.visibility = View.VISIBLE
         binding.tvInstructions.visibility = View.VISIBLE
-        binding.tvCategory.visibility = View.VISIBLE
-        binding.tvArea.visibility = View.VISIBLE
         binding.imgYoutube.visibility = View.VISIBLE
 
     }

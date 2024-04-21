@@ -45,6 +45,12 @@ class SignInActivity : AppCompatActivity() {
 
             }
         }
+
+        // Skip sign in
+        binding.button2.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
     //function that checks if the user is already signed in.
     // If yes, it will redirect the user directly to the home

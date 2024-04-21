@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.darjacreations.simplefour.databinding.PopularItemsBinding
+import com.darjacreations.simplefour.databinding.RandomCategoryItemsBinding
 import com.darjacreations.simplefour.pojo.MealsByCategory
 
-class MostPopularAdapter(): RecyclerView.Adapter<MostPopularAdapter.PopularMealViewHolder>() {
+class RandomCategoryAdapter(): RecyclerView.Adapter<RandomCategoryAdapter.RandomCategoryMealViewHolder>() {
     lateinit var onItemsClick:((MealsByCategory) -> Unit)
     private var mealsList = ArrayList<MealsByCategory>()
 
@@ -17,15 +17,15 @@ class MostPopularAdapter(): RecyclerView.Adapter<MostPopularAdapter.PopularMealV
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularMealViewHolder {
-        return PopularMealViewHolder(PopularItemsBinding.inflate(LayoutInflater.from(parent.context),parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RandomCategoryMealViewHolder {
+        return RandomCategoryMealViewHolder(RandomCategoryItemsBinding.inflate(LayoutInflater.from(parent.context),parent, false))
     }
 
-    override fun onBindViewHolder(holder: PopularMealViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RandomCategoryMealViewHolder, position: Int) {
         Glide.with(holder.itemView)
             .load(mealsList[position].strMealThumb)
-            .into(holder.binding.imgPopularMealItem)
-
+            .into(holder.binding.imgRandomCategoryMealItem)
+        holder.binding.tvRandomCategoryItem.text = mealsList[position].strMeal
         holder .itemView.setOnClickListener {
             onItemsClick.invoke(mealsList[position])
         }
@@ -35,5 +35,5 @@ class MostPopularAdapter(): RecyclerView.Adapter<MostPopularAdapter.PopularMealV
         return mealsList.size
     }
 
-    class PopularMealViewHolder(var binding:PopularItemsBinding):RecyclerView.ViewHolder(binding.root)
+    class RandomCategoryMealViewHolder(var binding:RandomCategoryItemsBinding):RecyclerView.ViewHolder(binding.root)
 }

@@ -22,10 +22,6 @@ interface MealApi {
     @GET( "lookup.php")
     fun getMealDetails(@Query("i") id:String) : Call<MealList>
 
-    //with question mark I can have one query inside this function
-    @GET("filter.php")
-    fun getPopularItems(@Query("c") categoryName:String) : Call<MealsByCategoryList>
-
     @GET( "categories.php")
     fun getCategories() : Call<CategoryList>
     //without question mark i can have any number or queries inside this function

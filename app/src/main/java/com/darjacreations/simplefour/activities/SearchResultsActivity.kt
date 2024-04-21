@@ -25,10 +25,15 @@ class SearchResultsActivity : AppCompatActivity() {
 
         searchViewModel.getMealsByIngredients(intent.getStringArrayListExtra(SearchFragment.SEARCH_LIST)!!)
 
-        searchViewModel.observeMealsByCategoryListLiveData().observe( this, { mealsList->
-            binding.tvCategoryCount.text = mealsList.size.toString()
+        searchViewModel.observeMealsByCategoryListLiveData().observe( this) { mealsList ->
+            if (mealsList.size == 0) {
+                binding.tvCategoryCount.text = "No Recipes found that contain all these " +
+                        "ingredients. Try again with fewer or different ingredient selections"
+            } else {
+                binding.tvCategoryCount.text = "Results: ${mealsList.size} Recipes"
+            }
             categoryMealsAdapter.setMealsList(mealsList)
-        })
+        }
     }
 
     private fun prepareRecyclerView() {
