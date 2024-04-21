@@ -72,8 +72,8 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:textStyle="bold"
-                android:textColor="@color/teal_700"
-                android:fontFamily="@font/myfont"
+                android:textColor="@color/dark_main"
+                android:fontFamily="@font/times_new"
                 android:textSize="@dimen/_16sdp"/>
 
             <TextView
@@ -117,22 +117,23 @@
             android:clickable="true"
             android:contentDescription="@string/youtube"
             android:focusable="true"
-            android:src="@drawable/ic_youtube" />
+            android:src="@drawable/youtube" />
 
         <ImageView
             android:id="@+id/btn_add_to_fav"
             android:layout_width="@dimen/_32sdp"
             android:layout_height="@dimen/_32sdp"
-            android:src="@drawable/ic_favourites"
-            app:backgroundTint="@color/teal_200"
-            app:tint="@color/teal_200"
+            android:src="@drawable/full_heart"
+            app:backgroundTint="@color/dark_main"
+
             />
 
         <Button
             android:id="@+id/btn_instructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="@color/teal_200"
+            app:backgroundTint="@color/light_main"
+            android:textColor="@color/black"
             android:text="@string/recipe_steps"
            />
 
@@ -140,9 +141,9 @@
             android:id="@+id/btn_ingredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="@color/teal_200"
-            android:text="@string/ingredients"
-            />
+            app:backgroundTint="@color/light_main"
+            android:textColor="@color/black"
+            android:text="@string/ingredients" />
 
 
     </LinearLayout>

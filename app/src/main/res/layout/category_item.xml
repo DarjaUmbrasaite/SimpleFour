@@ -21,10 +21,11 @@
         app:layout_constraintTop_toBottomOf="@id/img_category"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="@dimen/_13sdp"
+        android:textSize="@dimen/_20sdp"
+        android:textStyle="bold"
         android:text="Category name"
         android:textColor="@color/black"
-        android:fontFamily="@font/myfont"
-        android:layout_marginTop="@dimen/_3sdp"/>
+        android:fontFamily="@font/times_new"
+        android:layout_marginTop="0dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
