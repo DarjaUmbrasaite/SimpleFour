@@ -32,6 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_15ssp"
+            android:fontFamily="@font/times_new"
+            android:textStyle="bold"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/img_random_category_meal_item"
             app:layout_constraintEnd_toEndOf="@+id/img_random_category_meal_item"

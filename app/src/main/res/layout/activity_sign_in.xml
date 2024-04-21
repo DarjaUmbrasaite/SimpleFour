@@ -53,6 +53,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEt"
             android:fontFamily="@font/times_new"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Type your Email"
@@ -77,6 +78,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/passET"
             android:fontFamily="@font/times_new"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Type Your Password"
@@ -105,6 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
+        android:fontFamily="@font/times_new"
 
         android:text="Not registered yet?, create an account here"
         android:layout_marginTop="30dp"

@@ -2,9 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.SimpleFour" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary color. -->
-        <item name="colorPrimary">#008080</item>
+        <item name="colorPrimary">#2F7175</item>
         <item name="colorPrimaryVariant">@color/primary</item>
-        <item name="colorOnPrimary">@color/orange</item>
+        <item name="colorOnPrimary">@color/dark_main</item>
 
 
         <!-- Secondary color. -->
