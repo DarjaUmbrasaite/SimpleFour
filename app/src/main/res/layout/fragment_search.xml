@@ -27,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Ingredient 1"
+            android:layout_marginTop="@dimen/_30sdp"
             android:tag=""/>
 
         <AutoCompleteTextView
@@ -35,6 +36,7 @@
             android:layout_height="wrap_content"
             android:enabled="true"
             android:hint="Ingredient 2"
+            android:layout_marginTop="@dimen/_30sdp"
             android:tag=""/>
 
         <AutoCompleteTextView
@@ -43,6 +45,7 @@
             android:layout_height="wrap_content"
             android:enabled="true"
             android:hint="Ingredient 3"
+            android:layout_marginTop="@dimen/_30sdp"
             android:tag=""/>
 
         <AutoCompleteTextView
@@ -50,6 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="true"
+            android:layout_marginTop="@dimen/_30sdp"
             android:hint="Ingredient 4"
             android:tag=""/>
 
@@ -61,8 +65,8 @@
             android:text="Search"
             android:background="@color/dark_main"
             android:textColor="@color/white"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/main_text"/>
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/main_text" />
 
     </LinearLayout>
 
