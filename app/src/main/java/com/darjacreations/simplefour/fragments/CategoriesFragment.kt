@@ -63,7 +63,7 @@ class CategoriesFragment : Fragment() {
     private fun prepareRecyclerView() {
         categoriesAdapter = CategoriesAdapter()
         binding.rviewCategories.apply {
-            layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+            layoutManager = GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
             adapter = categoriesAdapter
         }
     }

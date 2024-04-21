@@ -4,10 +4,10 @@
 
     <item
         android:id="@+id/itemOne"
-        android:title="Sign In"/>
+        android:title="Sign In / Out"/>
 
     <item
         android:id="@+id/itemTwo"
-        android:title="Sign Out"/>
+        android:title="(c) Darja Creations"/>
 
 </menu>
