@@ -39,9 +39,6 @@ The android app lets you:
 - **/res**: Directory with all resources such as drawable for images and icons, font folder, layout for UI, menu for home screen top menu and bottom navigation, mipmap for launcher icons, values for colours abd style.    
 - **/Gradle Scripts**: Contains build.gradle (Module: app) for the app module settings and dependencies, as well as other Gradle-related scripts.
 
-## Installation Instructions
-
-1.
 
 ## Requirements:
 Android Studio HedgeHog 2023.1.1 (latest or earlier versions possibly okay too)
